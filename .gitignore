@@ -16,6 +16,13 @@ feishu-sync/
 # 生成产物（09 号 md 为源，docx 为导出件）
 飞书-项目变更记录.docx
 
+# Claude Code 个人覆盖文件（团队共享部分正常入库）
+CLAUDE.local.md
+.claude/settings.local.json
+
+# 运行日志
+*.err
+
 # 系统与编辑器
 .DS_Store
 Thumbs.db
