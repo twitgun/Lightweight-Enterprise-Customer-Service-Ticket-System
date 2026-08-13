@@ -1,6 +1,9 @@
 ---
-description: 按标准流程定位并修复一个 Bug，附回归验证
+name: fix-issue
+description: 按标准流程定位并修复工单系统的一个 Bug，附回归验证与留痕
 ---
+
+# 修复问题
 
 按以下流程修复指定问题：
 

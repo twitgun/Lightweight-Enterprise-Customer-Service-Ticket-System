@@ -1,11 +1,14 @@
 ---
-description: 对当前分支的改动做一次完整代码审查（前端 + 后端）
+name: review
+description: 对本仓库的改动执行一次完整代码审查（Vue3 前端 + NestJS 后端），输出结构化问题清单
 ---
+
+# 代码审查
 
 对当前改动执行代码审查：
 
 1. 用 `git status` / `git diff` 确认本次改动范围；
-2. 逐文件对照 `.claude/rules/code-style.md`、`api-conventions.md`、`testing.md` 检查；
+2. 逐文件对照 `AGENTS.md` 的规范要点检查（代码风格 / 测试 / API 约定）；
 3. 重点检查安全项：
    - 接口是否缺少 JWT / 角色守卫，是否存在越权读取他人数据；
    - SQL 是否参数化（TypeORM 参数绑定），避免拼接注入；
