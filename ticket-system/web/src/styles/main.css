@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--app-font);
+  background: var(--app-bg);
+  color: var(--app-text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ---------- 卡片 ---------- */
+.page-card {
+  position: relative;
+  background: var(--app-card);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  padding: 22px;
+  box-shadow: var(--app-shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0 0 16px;
+  color: var(--app-text);
+}
+
+/* ---------- 切角主面板 ---------- */
+.panel-hero {
+  clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%);
+  filter: drop-shadow(0 6px 20px rgba(23, 33, 60, 0.12));
+  transition: transform 0.25s ease;
+}
+
+/* ---------- 按钮 ---------- */
+.el-button {
+  border-radius: 9px;
+  font-weight: 600;
+  transition: all 0.18s ease;
+}
+.el-button--primary {
+  box-shadow: 0 2px 8px rgba(91, 108, 240, 0.28);
+}
+.el-button--primary:hover {
+  box-shadow: var(--app-glow-primary);
+  transform: translateY(-1px);
+}
+
+/* ---------- 输入 ---------- */
+.el-input__wrapper,
+.el-select__wrapper,
+.el-textarea__inner {
+  border-radius: 9px !important;
+  transition: box-shadow 0.18s ease;
+}
+
+/* ---------- 标签：柔和胶囊 ---------- */
+.el-tag {
+  border-radius: 7px;
+  font-weight: 600;
+}
+
+/* ---------- 表格 ---------- */
+.el-table {
+  --el-table-border-color: var(--app-border);
+  --el-table-header-bg-color: transparent;
+  --el-table-row-hover-bg-color: var(--app-primary-faint);
+  background: transparent !important;
+}
+.el-table th.el-table__cell {
+  color: var(--app-text-secondary);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+.el-table .el-table__inner-wrapper::before {
+  display: none;
+}
+
+/* ---------- 弹窗/下拉 ---------- */
+.el-dialog {
+  border-radius: var(--app-radius) !important;
+  border: 1px solid var(--app-border);
+  box-shadow: var(--app-shadow-hover);
+}
+.el-dialog__title {
+  font-weight: 800;
+}
+.el-dropdown-menu,
+.el-popper {
+  border-radius: var(--app-radius-sm) !important;
+}
+
+/* ---------- 聊天气泡 ---------- */
+.chat-bubble {
+  max-width: 72%;
+  padding: 11px 16px;
+  border-radius: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-shadow: 0 1px 3px rgba(23, 33, 60, 0.07);
+}
+.chat-bubble.customer {
+  background: var(--app-card);
+  border: 1px solid var(--app-border);
+  color: var(--app-text);
+  border-top-left-radius: 5px;
+}
+.chat-bubble.staff {
+  background: linear-gradient(135deg, var(--app-primary), var(--app-primary-deep));
+  color: #fff;
+  border-top-right-radius: 5px;
+}
+.chat-bubble.system {
+  background: transparent;
+  color: var(--app-text-secondary);
+  font-size: 12px;
+  border: 1px dashed var(--app-border);
+  box-shadow: none;
+}
+
+.text-muted {
+  color: var(--app-text-secondary);
+  font-size: 12px;
+}
+
+/* ---------- 空状态 ---------- */
+.el-empty__image {
+  filter: drop-shadow(0 4px 10px rgba(91, 108, 240, 0.18));
+}
+.el-empty__description p {
+  color: var(--app-text-secondary);
+}
+
+/* ---------- 页面过渡 ---------- */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+/* ---------- 滚动条 ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 130, 150, 0.35);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 数字跳动目标：等宽对齐 */
+.num-mono {
+  font-family: var(--app-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 光标与文字选择规范 ----------
+   原则：不可选的文字不显示文本光标（默认箭头），可交互元素显示手型，
+   仅真正可复制的内容（留言/答案/正文）允许选中并显示文本光标。 */
+html,
+body,
+#app {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+input,
+textarea,
+[contenteditable='true'],
+.el-input__inner,
+.el-textarea__inner {
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+.selectable,
+.chat-bubble,
+.answer-text,
+.faq-answer,
+.bulletin-content,
+.log-detail,
+.feed-content {
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+button,
+.el-button,
+.el-link,
+.el-menu-item,
+.el-dropdown-menu__item,
+a,
+.clickable,
+.icon-btn,
+.hero-chip-btn {
+  cursor: pointer;
+}

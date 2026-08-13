@@ -1,0 +1,134 @@
+:root {
+  /* 基础 */
+  --app-bg: #f4f5fb;
+  --app-card: #ffffff;
+  --app-border: #e7e9f4;
+  --app-text: #1f2430;
+  --app-text-secondary: #7c8496;
+
+  /* 品牌色：靛蓝紫 */
+  --app-primary: #5b6cf0;
+  --app-primary-deep: #4757d8;
+  --app-primary-soft: rgba(91, 108, 240, 0.09);
+  --app-primary-faint: rgba(91, 108, 240, 0.045);
+
+  /* 强调点缀色：橙 / 青 */
+  --app-accent-orange: #ff9d5c;
+  --app-accent-orange-soft: rgba(255, 157, 92, 0.14);
+  --app-accent-cyan: #3cc7e8;
+  --app-accent-cyan-soft: rgba(60, 199, 232, 0.14);
+
+  /* 语义色（柔和低饱和） */
+  --app-success: #37c98c;
+  --app-warning: #f2b441;
+  --app-danger: #f06a7a;
+  --app-info: #8f9aad;
+  --app-success-soft: rgba(55, 201, 140, 0.14);
+  --app-warning-soft: rgba(242, 180, 65, 0.16);
+  --app-danger-soft: rgba(240, 106, 122, 0.13);
+
+  /* 面板与切角 */
+  --app-radius: 14px;
+  --app-radius-sm: 10px;
+  --app-cut: 16px;
+  --app-cut-sm: 8px;
+  --app-shadow: 0 1px 2px rgba(23, 33, 60, 0.05), 0 6px 20px rgba(23, 33, 60, 0.06);
+  --app-shadow-hover: 0 6px 16px rgba(23, 33, 60, 0.09), 0 16px 40px rgba(23, 33, 60, 0.12);
+  --app-glow-primary: 0 0 0 1px rgba(91, 108, 240, 0.25), 0 4px 16px rgba(91, 108, 240, 0.28);
+
+  /* 布局 */
+  --app-header-h: 60px;
+  --app-sidebar-w: 236px;
+  --app-sidebar-w-collapsed: 68px;
+  --app-content-max: 1340px;
+
+  /* 字体 */
+  --app-font: 'HarmonyOS Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --app-font-display: 'HarmonyOS Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  --app-font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+
+  /* Element Plus 主色同步 */
+  --el-color-primary: #5b6cf0;
+  --el-color-primary-light-3: #7d8af4;
+  --el-color-primary-light-5: #a0aaf7;
+  --el-color-primary-light-7: #c4cafa;
+  --el-color-primary-light-8: #d6dafc;
+  --el-color-primary-light-9: #eaeefd;
+  --el-color-primary-dark-2: #4757c8;
+  --el-color-success: #37c98c;
+  --el-color-warning: #f2b441;
+  --el-color-danger: #f06a7a;
+  --el-color-info: #8f9aad;
+}
+
+html.dark {
+  --app-bg: #0e1320;
+  --app-card: #181f2e;
+  --app-border: #2a3347;
+  --app-text: #eef1f7;
+  --app-text-secondary: #8d97ab;
+  --app-primary-soft: rgba(91, 108, 240, 0.18);
+  --app-primary-faint: rgba(91, 108, 240, 0.07);
+  --app-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 20px rgba(0, 0, 0, 0.3);
+  --app-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* 科技纹理：细网格 */
+.tex-grid {
+  position: relative;
+}
+.tex-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(to right, rgba(91, 108, 240, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(91, 108, 240, 0.055) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+html.dark .tex-grid::before {
+  opacity: 0.55;
+  background-image:
+    linear-gradient(to right, rgba(120, 140, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(120, 140, 255, 0.08) 1px, transparent 1px);
+}
+
+/* 切角面板：右上角切角 + 投影跟随形状 */
+.panel-cut {
+  clip-path: polygon(0 0, calc(100% - var(--app-cut)) 0, 100% var(--app-cut), 100% 100%, 0 100%);
+  filter: drop-shadow(0 4px 14px rgba(23, 33, 60, 0.08));
+  transition: filter 0.22s ease, transform 0.22s ease;
+}
+html.dark .panel-cut {
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.4));
+}
+.panel-cut:hover {
+  filter: drop-shadow(0 8px 22px rgba(23, 33, 60, 0.13));
+}
+html.dark .panel-cut:hover {
+  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.55));
+}
+.panel-cut.clickable {
+  cursor: pointer;
+}
+.panel-cut.clickable:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 8px 22px rgba(23, 33, 60, 0.15));
+}
+html.dark .panel-cut.clickable:hover {
+  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.6));
+}
+
+/* 小切角按钮/元素 */
+.cut-sm {
+  clip-path: polygon(0 0, calc(100% - var(--app-cut-sm)) 0, 100% var(--app-cut-sm), 100% 100%, 0 100%);
+}
+
+/* 等宽数字 */
+.num-mono {
+  font-family: var(--app-font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}

@@ -1,0 +1,23 @@
+# 依赖与构建产物
+node_modules/
+dist/
+build/
+coverage/
+*.log
+
+# 本地环境与密钥
+.env
+.env.*
+!.env.example
+
+# 飞书同步工具（脚本内含应用密钥，仅保留在本机，不入库）
+feishu-sync/
+
+# 生成产物（09 号 md 为源，docx 为导出件）
+飞书-项目变更记录.docx
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
